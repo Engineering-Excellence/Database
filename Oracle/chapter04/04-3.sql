@@ -1,4 +1,4 @@
--- SQL의 기본 뼈대, SELECT절과 FROM절
+/* SQL의 기본 뼈대, SELECT절과 FROM절 */
 
 /*
     기본 형식

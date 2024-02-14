@@ -1,4 +1,4 @@
--- 중복 데이터를 삭제하는 DISTINCT
+/* 중복 데이터를 삭제하는 DISTINCT */
 
 SELECT DEPTNO
 FROM EMP;
