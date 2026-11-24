@@ -3,7 +3,7 @@
 -- 숫자와 문자열(숫자)을 더하여 출력하기
 SELECT EMPNO
      , ENAME
-     , EMPNO + '500' /* 암시적(자동) 형 변환 */
+     , EMPNO + '500' /* 암시적(자동) 형 변환: 숫자 + 문자열(숫자) = 숫자 */
 FROM EMP
 WHERE ENAME = 'SCOTT';
 
@@ -102,3 +102,8 @@ SELECT TO_DATE('49/12/10', 'YY/MM/DD') AS YY_YEAR_49 /* 2049-12-10 */
      , TO_DATE('51/12/10', 'YY/MM/DD') AS YY_YEAR_51
      , TO_DATE('51/12/10', 'RR/MM/DD') AS RR_YEAR_51 /* 1951-12-10 */
 FROM DUAL;
+
+-- 1980년 10월 15일 이후에 입사한 사원을 출력
+SELECT *
+FROM EMP
+WHERE HIREDATE > TO_DATE('1980/10/15', 'YYYY/MM/DD');

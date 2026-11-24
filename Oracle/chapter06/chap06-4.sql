@@ -11,7 +11,7 @@ SELECT SYSDATE
      , ADD_MONTHS(SYSDATE, 3)
 FROM DUAL;
 
--- 입사 10주년이 되는 사원들 데이터 출력하기
+-- 입사 10주년이 되는 날짜 출력하기
 SELECT EMPNO
      , ENAME
      , HIREDATE
@@ -25,6 +25,11 @@ SELECT EMPNO
      , SYSDATE
 FROM EMP
 WHERE ADD_MONTHS(HIREDATE, 480) > SYSDATE;
+
+-- 현재 날짜와 6개월 후 날짜를 출력
+SELECT SYSDATE
+     , ADD_MONTHS(SYSDATE, 6)
+FROM DUAL;
 
 -- HIREDATE와 SYSDATE 사이의 개월 수를 MONTHS_BETWEEN 함수로 출력하기
 SELECT EMPNO

@@ -103,7 +103,7 @@ WHERE ENAME LIKE '_L%';
 -- 사원 이름에 AM이 포함되어 있는 사원 데이터만 출력하기
 SELECT *
 FROM EMP
-WHERE ENAME LIKE '%AM%';
+WHERE ENAME LIKE '%AM%'/* 와일드카드(%)가 후방에 위치할수록 성능 향상 */;
 
 -- 사원 이름에 AM이 포함되어 있지 않은 사원 데이터 출력하기
 SELECT *
@@ -119,6 +119,8 @@ WHERE ENAME NOT LIKE '%AM%';
 
 -- 별칭을 사용하여 열 이름 출력하기
 SELECT ENAME, SAL, SAL * 12 + COMM AS ANNSAL, COMM
+FROM EMP;
+SELECT ENAME, SAL, SAL * 12 + NVL(COMM, 0) AS ANNSAL, COMM
 FROM EMP;
 
 -- 등가 비교 연산자로 NULL 비교하기
@@ -149,7 +151,7 @@ WHERE SAL > NULL
    OR COMM IS NULL;
 
 -- 집합 연산자(UNION)를 사용하여 출력하기
-SELECT EMPNO, ENAME, SAL, DEPTNO
+SELECT EMPNO, ENAME, SAL, DEPTNO /* 첫 번째 SELECT의 열 이름이 기준 */
 FROM EMP
 WHERE DEPTNO = 10
 UNION
@@ -205,7 +207,7 @@ WHERE DEPTNO = 10;
 -- 집합 연산자(MINUS)를 사용하여 출력하기
 SELECT EMPNO, ENAME, SAL, DEPTNO
 FROM EMP
-         MINUS
+MINUS
 SELECT EMPNO, ENAME, SAL, DEPTNO
 FROM EMP
 WHERE DEPTNO = 10;
